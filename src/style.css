@@ -4,11 +4,13 @@
   box-sizing: border-box;
 }
 
-#app{
+
+body{
+  background-color: bisque;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
   height: 100vh;
 }
 
