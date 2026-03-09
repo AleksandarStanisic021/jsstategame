@@ -7,13 +7,13 @@ export class InputHandler {
                     this.lastKey = "PRESS left";
                     break
                 case "ArrowRight":
-                    this.lastKey = 'PRESSS right';
+                    this.lastKey = 'PRESS right';
                     break
                 case "ArrowUp":
                     this.lastKey = "PRESS up";
                     break
                 case "ArrowDown":
-                    this.lastKey = 'PRESSS down';
+                    this.lastKey = 'PRESS down';
                     break
             }
         })

@@ -17,10 +17,9 @@ const input = new InputHandler();
 function animate() {
   drawStatusText(ctx, input);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  p.update(input.lastKey);
   p.draw(ctx);
   drawStatusText(ctx, input);
-  console.log(input.lastKey);
-
   requestAnimationFrame(animate);
 }
 animate(0);

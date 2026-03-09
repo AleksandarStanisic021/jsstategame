@@ -1,4 +1,6 @@
 import dogAsset from './dog_left_right_white.png'
+import { StandingLeft, StandingRight } from './state';
+
 let image = new Image();
 image.src = dogAsset;
 
@@ -6,8 +8,9 @@ export class Player {
     constructor(gameWidth, gameHight) {
         this.gameWidth = gameWidth;
         this.gameHight = gameHight;
-        this.states = [];
+        this.states = [new StandingLeft(this), new StandingRight(this)];
         this.currentState = this.states[0];
+        this.currentState.enter();
         this.image = image;
         this.width = 200;
         this.height = 181.83;
@@ -15,6 +18,9 @@ export class Player {
         this.y = this.gameHight - this.height;
         this.frameX = 0;
         this.frameY = 0;
+    }
+    update(input) {
+        this.currentState.handleInput(input);
     }
     draw(context) {
         context.drawImage(this.image,
@@ -27,5 +33,8 @@ export class Player {
             this.width,
             this.height);
     }
-
+    setState(state) {
+        this.currentState = this.states[state];
+        this.currentState.enter();
+    }
 }
