@@ -21,12 +21,26 @@ export class Player {
         this.frameY = 0;
         this.speed=0;
         this.maxSpeed=10;
+        this.maxFrame = 3;
+        this.timer = 0;
+        this.staggerTime = 50;
     }
     update(input) {
         this.currentState.handleInput(input);
         this.x+=this.speed;
     }
-    draw(context) {
+    draw(context, delta) {
+        this.timer += delta;
+
+        if (this.timer > this.staggerTime) {
+            this.timer = 0;
+            if (this.frameX < this.maxFrame) {
+                this.frameX++;
+            } else {
+                this.frameX = 0;
+            }
+        }
+
         context.drawImage(this.image,
             this.width * this.frameX,
             this.height * this.frameY,
