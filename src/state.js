@@ -15,8 +15,6 @@ export class StandingLeft extends State {
         this.player = player;
     }
     enter() {
-        console.log('enter');
-
         this.player.frameY = 1;
     }
     handleInput(input) {
