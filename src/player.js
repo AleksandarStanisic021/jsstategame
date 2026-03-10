@@ -19,9 +19,12 @@ export class Player {
         this.y = this.gameHight - this.height;
         this.frameX = 0;
         this.frameY = 0;
+        this.speed=0;
+        this.maxSpeed=10;
     }
     update(input) {
         this.currentState.handleInput(input);
+        this.x+=this.speed;
     }
     draw(context) {
         context.drawImage(this.image,
